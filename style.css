@@ -1,0 +1,84 @@
+/* style.css - InfoTekno site (SEO-friendly, responsive, dark mode) */
+
+/* FONT fallback */
+:root {
+    --bg: #f5f6fa;
+    --text: #111;
+    --primary: #0a1a44;
+    --accent: #4da3ff;
+    --card: #ffffff;
+}
+
+:root[data-theme='dark'] {
+    --bg: #07102a;
+    --text: #e9eefb;
+    --primary: #0f245c;
+    --accent: #76bdff;
+    --card: #0b1a39;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter, Poppins, Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+
+/* Header / Navbar */
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:linear-gradient(90deg,var(--primary),#142857);color:white;position:sticky;top:0;z-index:50}
+.site-header .logo{font-weight:700;font-size:20px}
+.nav a{color:white;text-decoration:none;margin-left:18px;font-weight:600;opacity:0.95}
+.controls button{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:6px 10px;border-radius:8px;color:white;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;height:52vh;background:url('images/tech-bg.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center}
+.hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,60,0.6),rgba(10,20,60,0.55))}
+.hero-text{position:relative;text-align:center;color:white;animation:fadeSlide .9s ease-out}
+.hero-text h1{font-size:3rem;letter-spacing:0.3px}
+.hero-text p{margin-top:10px;opacity:0.9}
+
+/* ANIMATIONS */
+@keyframes fadeSlide{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* MAIN / ARTICLES */
+main{padding:40px 20px}
+.info-section{max-width:1100px;margin:0 auto}
+.info-section h2{text-align:center;font-size:2rem;color:var(--primary);margin-bottom:18px}
+
+.article-card{display:flex;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.12);margin:18px 0;transition:transform .25s}
+.article-card img{width:40%;object-fit:cover}
+.article-text{padding:22px}
+.article-text h3{margin-bottom:8px}
+.article-text p{opacity:.85}
+.read-btn{display:inline-block;margin-top:12px;padding:10px 14px;background:var(--primary);color:white;border-radius:8px;text-decoration:none;transition:transform .18s}
+.read-btn:hover{transform:translateY(-4px);background:var(--accent);color:#000}
+
+/* list articles */
+.list-articles{margin-top:18px}
+.list-articles ul{list-style:disc;margin-left:20px}
+.list-articles a{text-decoration:none;color:var(--primary)}
+
+/* ANGGOTA */
+.anggota-section{background:var(--card);padding:36px 20px;margin-top:28px;border-radius:12px;box-shadow:0 8px 20px rgba(2,6,23,0.06)}
+.anggota-container{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.anggota-card{width:230px;background:var(--card);padding:16px;border-radius:12px;text-align:center;box-shadow:0 8px 20px rgba(2,6,23,0.06);transition:transform .2s}
+.anggota-card img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+.profile-btn{display:inline-block;margin-top:12px;padding:8px 12px;background:var(--primary);color:white;border-radius:8px;text-decoration:none}
+
+/* FOOTER */
+.site-footer{margin-top:30px;background:linear-gradient(90deg,#081230,#0b1a39);color:#fff;padding:28px 20px;margin-bottom:24px}
+.footer-inner{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap;max-width:1100px;margin:0 auto}
+.footer-col h4{margin-bottom:8px}
+.footer-col ul{list-style:none}
+.footer-bottom{text-align:center;margin-top:18px;opacity:0.9}
+
+/* Responsive */
+@media (max-width:900px){
+    .article-card{flex-direction:column}
+    .article-card img{width:100%;height:220px}
+    .hero-text h1{font-size:2.2rem}
+    .site-header{padding:12px 16px}
+    .footer-inner{flex-direction:column;align-items:center}
+}
+
+@media (max-width:520px){
+    .hero{height:36vh}
+    .hero-text h1{font-size:1.6rem}
+    .anggota-card{width:100%}
+}

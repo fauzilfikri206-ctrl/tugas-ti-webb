@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoTekno — Portal Teknologi</title>
+    <meta name="description" content="Portal informasi teknologi terkini, artikel edukatif, dan profil tim pengembang.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAVBAR + DARK MODE SWITCH -->
+    <header class="site-header">
+        <div class="logo">InfoTekno</div>
+        <nav class="nav">
+            <a href="#info">Artikel</a>
+            <a href="#anggota">Anggota</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+        <div class="controls">
+            <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="hero-text">
+            <h1>InfoTekno</h1>
+            <p>Portal Informasi & Artikel Teknologi Terkini</p>
+        </div>
+    </header>
+
+    <!-- Papan Informasi / Artikel (focus) -->
+    <main>
+    <section class="info-section" id="info">
+        <h2>Papan Informasi Terbaru</h2>
+
+        <article class="article-card">
+            <img src="images/ai.jpg" alt="AI">
+            <div class="article-text">
+                <h3><a href="artikel-ai.html">Kecerdasan Buatan: Teknologi yang Mengubah Dunia</a></h3>
+                <p>AI kini menjadi bagian penting dalam kehidupan modern mulai dari smartphone, kesehatan, hingga industri...</p>
+                <a href="artikel-ai.html" class="read-btn">Baca Selengkapnya</a>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <img src="images/cyber.jpg" alt="Cybersecurity">
+            <div class="article-text">
+                <h3><a href="artikel-cyber.html">Cybersecurity: Mengapa Keamanan Digital Itu Penting?</a></h3>
+                <p>Dengan meningkatnya penggunaan internet, keamanan data menjadi hal yang wajib diperhatikan oleh semua pengguna...</p>
+                <a href="artikel-cyber.html" class="read-btn">Baca Selengkapnya</a>
+            </div>
+        </article>
+
+        <div class="list-articles">
+            <h3>Artikel Lainnya</h3>
+            <ul>
+                <li><a href="#">Perkembangan 5G di Indonesia</a></li>
+                <li><a href="#">Quantum Computing: Penjelasan Singkat</a></li>
+                <li><a href="#">Tips Aman di Internet untuk Pelajar</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ANGGOTA (secondary) -->
+    <section id="anggota" class="anggota-section">
+        <h2>Anggota Kelompok</h2>
+        <div class="anggota-container">
+            <div class="anggota-card">
+                <img src="images/user1.jpeg" alt="Anggota 1">
+                <h3>Fikri</h3>
+                <p>Programmer</p>
+                <a href="anggota1.html" class="profile-btn">Lihat Profil</a>
+            </div>
+            <div class="anggota-card">
+                <img src="images/user2.jpeg" alt="Anggota 2">
+                <h3>Azis</h3>
+                <p>Designer UI/UX</p>
+                <a href="anggota2.html" class="profile-btn">Lihat Profil</a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- FOOTER (professional) -->
+    <footer id="kontak" class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>InfoTekno</h4>
+                <p>Portal teknologi edukatif — dibuat untuk tugas kelompok.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menu Cepat</h4>
+                <ul>
+                    <li><a href="#info">Artikel</a></li>
+                    <li><a href="#anggota">Anggota</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <p>IG: @fzlfikri</p>
+                <p>IG: @rezabdlzzz_</p>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025 InfoTekno • All rights reserved</div>
+    </footer>
+
+    <script>
+    // Dark mode toggle with saved preference
+    (function() {
+        const toggle = document.getElementById('darkToggle');
+        const root = document.documentElement;
+        const saved = localStorage.getItem('infotekno-theme');
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                root.setAttribute('data-theme', 'dark');
+                toggle.textContent = '☀️';
+            } else {
+                root.setAttribute('data-theme', 'light');
+                toggle.textContent = '🌙';
+            }
+        }
+
+        // initial
+        applyTheme(saved || 'dark');
+
+        toggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            localStorage.setItem('infotekno-theme', next);
+        });
+    })();
+    </script>
+
+</body>
+</html>
